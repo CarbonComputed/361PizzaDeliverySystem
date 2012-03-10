@@ -1,0 +1,11 @@
+#1. The name of the Item, 2. The Price,3.Space Units, 4. True if this item can have toppings,
+#5....N The time it takes per stage, must be equal to the number of Stages not including the delivery stage in Stage.cfg, 
+#DO NOT account for the Driver Time
+Small Pizza,4.25,9,true,19,8,6
+Large Pizza,8.25,8,true,15,4,6
+Pizza Logs,2.00,12,false,2,3,0
+Tossed Salad,2.00,6,false,2,3,0
+Cannoli,2.00,6,false,2,3,9
+Breadsticks,2.00,6,false,2,3,9
+French Fries,2.00,6,false,2,3,9
+Pie,2.00,6,false,2,3,9

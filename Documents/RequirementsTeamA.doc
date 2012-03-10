@@ -1,0 +1,287 @@
+<html>
+    <head>
+        <!-- MS Word on Windows doesn't realise the encoding is UTF-8 unless this meta tag is present -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <base href="https://wiki.rit.edu" />
+        <title>Team A - Requirements</title>
+        <style>
+            body, p, td, table, tr, .bodytext, .stepfield {
+	            font-family: Verdana, arial, sans-serif;
+            }
+            .panel {
+                margin: 10px;
+                padding: 10px;
+                border: 1px solid #999;
+                background-color: #f0f0f0;
+            }
+            .noteMacro { border-style: solid; border-width: 1px; border-color: #F0C000; background-color: #FFFFCE; text-align:left;}
+            .warningMacro { border-style: solid; border-width: 1px; border-color: #c00; background-color: #fcc; text-align:left;}
+            .infoMacro { border-style: solid; border-width: 1px; border-color: #69c; background-color: #D8E4F1; text-align:left;}
+            .tipMacro { border-style: solid; border-width: 1px; border-color: #090; background-color: #dfd; text-align:left;}
+            .informationMacroPadding { padding: 5px 0 0 5px; }
+
+            table.infoMacro td, table.warningMacro td, table.tipMacro td, table.noteMacro td, table.sectionMacro td {
+                border: none;
+            }
+
+            .grid {
+                margin: 2px 0px 5px 0px;
+                border-collapse: collapse;
+            }
+            .grid th  {
+                border: 1px solid #ccc;
+                padding: 2px 4px 2px 4px;
+                background: #f0f0f0;
+                text-align: center;
+            }
+            .grid td  {
+                border: 1px solid #ccc;
+                padding: 3px 4px 3px 4px;
+            }            
+        </style>
+    </head>
+
+    <body style="background-color: white; padding: 10px;">
+        <h1>Team A - Requirements</h1>
+        <h2><a name="TeamA-Requirements-ProblemStatement"></a>Problem Statement</h2>
+
+<p><font color="#000000">We are tasked with the creation of a pizza delivery system that manages the order of, preparation of and, delivery of food products. The system must also log the transactions made at the terminal, as well as track the terminal usage of the terminal by each employee.</font></p>
+
+
+<h2><a name="TeamA-Requirements-Stakeholders"></a>Stakeholders</h2>
+
+<ul>
+	<li><font color="#000000">Customer - Mr. Dipizza</font></li>
+</ul>
+
+
+<ul>
+	<li><font color="#000000">Employees (Cashiers, Managers)</font></li>
+</ul>
+
+
+<h2><a name="TeamA-Requirements-UserProfiles"></a>User Profiles</h2>
+
+<ul>
+	<li><font color="#000000">Cashier</font> <font color="#000000">&#45; has the ability to place order, change order and cancel order. They also have the ability to retrieve customer information and update customer information.</font></li>
+	<li><font color="#000000">Managers - in addition to all the privileges that a cashier has, a manager is also able to view order logs, terminal usage logs and add or remove an employee from the system</font></li>
+</ul>
+
+
+<h2><a name="TeamA-Requirements-SystemRequirements%28Notcurrentlyabletotell%29"></a>System Requirements (Not currently able to tell)</h2>
+
+<ul>
+	<li><font color="#3366ff">JRE 1.6.X installed on machine</font></li>
+	<li><font color="#3366ff">Disk with X free space</font></li>
+</ul>
+
+
+<h2><a name="TeamA-Requirements-UserStories%2FFeatures"></a>User Stories / Features</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> ID </th>
+<th class='confluenceTh'> Feature / Story Name <br class="atl-forced-newline" /> </th>
+<th class='confluenceTh'> Description <br class="atl-forced-newline" /> </th>
+<th class='confluenceTh'> Planned Release <br class="atl-forced-newline" /> </th>
+</tr>
+<tr>
+<td class='confluenceTd'> 1 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Add customer <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> If a customer is not currently with in the customer database, after their information is collected, they will be added to it and will be identifiable by their phone number <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> First release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 2 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Place Order <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> When the customer is has completed an order it will added to the order logs and sent to the kitchen to be prepared <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> First release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Change/Delete Order <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> If customer wants to modify or cancel their order, employee needs to be able to modify or cancel the order <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> First release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 4 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Configure Menu <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Manager should be able to change the prices and availability of items for the day <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> First release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 5 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Get Order/Usage Logs <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Manager should be able to inspect sales and employee usage. This can be done using a desired date ranged (ex. 12/12/2011 - 12/12/2012) <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> First release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 6 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Log-in to terminal <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Employee must log-in to a unique account to place order <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> First release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 7 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Configurable Stages <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> The system should be able to handle additional stages, should the customer desire them. (ex. Glazing stage) <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Second release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 8 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Promoting to Manager <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Original Manager (or superuser) should be able to promote an Employee so they can open or close shoppe <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Second release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 9 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Manage employees <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Manager should be able to add and remove employees from the system <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Second release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 10 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> View Active Logs <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> At any time, the employee or manager should be able to view the current orders <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> First release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 11 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Open/Close Store <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> The manager should be able to open the store for the day, set the number of cooks, ovens, and drivers, and close the store when the day is over <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> First release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 12 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Automatically update order state <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> As the order progresses through the simulation, the GUI updates where it is and what it is doing <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Second release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 13 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Filter Orders based on customer and current stage <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> The program not only allows the user to view the current order, but those orders can be sorted by stage and customer as well <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> Second release <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> 14 </td>
+<td class='confluenceTd'> Persistence after opening and closing the store. <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'> When the store is closed all orders are saved to disk and any other data created while using the store. </td>
+<td class='confluenceTd'> Second release </td>
+</tr>
+</tbody></table>
+</div>
+
+
+<h2><a name="TeamA-Requirements-UMLUseCaseContextDiagram"></a>UML Use Case Context Diagram</h2>
+
+
+<p><span class="image-wrap" style=""><img src="https://wiki.rit.edu/download/attachments/52802877/use-cases.png?version=1&amp;modificationDate=1323550093527" style="border: 0px solid black" /></span></p>
+
+
+<h2><a name="TeamA-Requirements-UMLUseCase"></a>UML Use Case</h2>
+
+<h3><a name="TeamA-Requirements-UC2PlaceOrder"></a>UC2 - Place Order</h3>
+
+<p>Customer has called the shop to order food. The employee needs to input the order into the system, give the customer the cost and time, and send the order to the kitchen.</p>
+
+
+
+<h5><a name="TeamA-Requirements-Actor%28s%29"></a>Actor(s)</h5>
+
+<ul>
+	<li>Employee</li>
+	<li>Customer (Secondary)</li>
+</ul>
+
+
+<h5><a name="TeamA-Requirements-PreCondition%28s%29"></a>Pre-Condition(s)</h5>
+
+<ul>
+	<li>Employee needs to be logged in to the PDS</li>
+	<li>Item(s) need to be available</li>
+</ul>
+
+
+<h5><a name="TeamA-Requirements-MainScenarioFlow%2FSteps"></a>Main Scenario Flow/Steps</h5>
+
+<ol>
+	<li>Cashier enters the customer's phone number and checks if the current caller is in the data base
+	<ol>
+		<li>if no then the cashier must collect the customers name and address the proceed to step 2</li>
+		<li>if yes then proceed to step 2</li>
+	</ol>
+	</li>
+	<li>Cashier then collects the order from the customer</li>
+	<li>Cashier gives total, estimated time of delivery and confirms address</li>
+	<li>The order is placed</li>
+</ol>
+
+
+<h5><a name="TeamA-Requirements-AlternateFlows"></a>Alternate Flows</h5>
+
+<ol>
+	<li>Cashier checks if the current caller is in the data base
+	<ol>
+		<li>if not then the cashier must collect the customers name and address</li>
+	</ol>
+	</li>
+	<li>Cashier then collects the order from the customer</li>
+	<li>Cashier gives total, estimated time of delivery and confirms address</li>
+	<li>Customer address is not correct
+	<ol>
+		<li>if yes,update customer address then proceed to step 5</li>
+		<li>if no, proceed to step 5</li>
+	</ol>
+	</li>
+	<li>Customer wants to change the order
+	<ol>
+		<li>if yes proceed to step 2</li>
+		<li>if no proceed to step 6</li>
+	</ol>
+	</li>
+	<li>The order is placed</li>
+</ol>
+
+
+
+
+<h5><a name="TeamA-Requirements-PostCondition"></a>Post-Condition</h5>
+
+<ul>
+	<li>The log of the orders is updated</li>
+	<li>Customer data base information is update</li>
+	<li>The order is in the kitchen and then sent to deliver</li>
+</ul>
+
+    </body>
+</html>

@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<project name="Pizza Delivery System" default="all" basedir=".">
+    <description>Ant build file for the WLNV Migration Framework</description>
+
+    <!-- Set global properties for this build. -->
+    <property name="debug" value="true" />
+    <property name="deprecation" value="false" />
+    <property name="optimize" value="false" />
+    <property name="verbose" value="no" />
+
+    <!-- Project Properties -->
+	<property name="name" value="Pizza Delivery System" />
+    <property name="version" value="DEVELOPMENT" />
+    <property name="jar.name" value="pds-teamx.jar" />
+	<property name="vendor" value="SE361 - Team A" />
+	<property name="mainclass" value="edu.rit.se.ryan.Foo" />
+	
+    <property name="build" value="${basedir}/build" />
+    <property name="testbuild" value="${basedir}/build-test" />
+    <property name="build.classes" value="${build}/classes" />
+    <property name="test.build.classes" value="${testbuild}/classes" />
+    <property name="dist" value="${basedir}/dist" />
+    <property name="lib" value="${basedir}/lib" />
+    <property name="src" value="${basedir}/src/java" />
+	<property name="conf" value="${basedir}/conf" />
+    <property name="javadoc" value="${dist}/javadoc" />
+    <property name="test" location="${basedir}/test/java" />
+    <property name="test.reports" location="${dist}/reports" />
+	
+    <path id="classpath">
+        <fileset dir="${lib}">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+
+    <target name="clean" description="Delete the build and distribution directories">
+        <delete dir="${build}" />
+        <delete dir="${dist}" />
+        <delete dir="${testbuild}" />
+    </target>
+
+    <target name="prepare" depends="clean" description="Create the build directory">
+        <mkdir dir="${build}" />
+    </target>
+
+    <target name="compile" depends="prepare" description="Compile the source">
+        <mkdir dir="${build.classes}" />
+        <javac srcdir="${src}" destdir="${build.classes}" verbose="${verbose}" debug="${debug}" deprecation="${deprecation}" optimize="${optimize}">
+            <classpath refid="classpath" />
+        </javac>
+    </target>
+
+    <target name="compileTests" unless="noTests" depends="compile" description="Compile the JUnit Test cases">
+        <mkdir dir="${test.build.classes}" />
+        <javac srcdir="${test}" destdir="${test.build.classes}" verbose="${verbose}" debug="${debug}" deprecation="${deprecation}" optimize="${optimize}">
+            <classpath>
+                <fileset dir="${lib}" includes="**/*.jar" />
+                <pathelement path="${build.classes}" />
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="runTests"  unless="noTests" depends="compileTests" >
+        <mkdir dir="${test.reports}" />
+        <junit fork="yes" haltonfailure="no">
+            <batchtest todir="${test.reports}">
+                <fileset dir="${test}">
+                    <include name="**/*Test.java" />
+                    <exclude name="**/FilterTest.java" />
+                </fileset>
+            </batchtest>
+            <formatter type="xml" />
+            <classpath>
+                <fileset dir="${lib}" includes="**/*.jar" />
+                <pathelement path="${test.build.classes}" />
+                <pathelement path="test/data" />
+                <pathelement path="${build.classes}" />
+            </classpath>
+        </junit>
+        <junitreport todir="${test.reports}">
+            <fileset dir="${test.reports}">
+                <include name="TEST-*.xml" />
+            </fileset>
+            <report todir="${test.reports}" />
+        </junitreport>
+    </target>
+
+    <target name="packageExpress" depends="compile" description="execute all steps except the JUnit testing and reporting">
+        <property name="noTests" value=""/>
+        <antcall target="package"/>
+    </target>
+
+    <target name="package" depends="runTests" description="Create the distribution directory">
+        <mkdir dir="${build.classes}/META-INF" />
+        <mkdir dir="${dist}" />
+
+        <!-- Put everything in ${build} into the distribution jar file. -->
+        <jar jarfile="${dist}/${jar.name}" compress="false" basedir="${build.classes}">
+            <manifest>
+                <attribute name="Specification-Title" value="${name}" />
+                <attribute name="Specification-Version" value="${version}" />
+                <attribute name="Specification-Vendor" value="${vendor}" />
+                <!--<attribute name="Class-Path" value="" />-->
+            	<attribute name="Main-Class" value="${mainclass}" />
+            </manifest>
+        	
+        	<fileset dir="${conf}" />
+        </jar>
+    </target>
+
+    <target name="javadoc" description="Create API documentation">
+        <delete dir="${javadoc}" />
+        <mkdir dir="${javadoc}" />
+        <javadoc
+            access="package"
+            bottom="${copyright}"
+            doctitle="${name} API"
+            windowtitle="${name} Internal API Documentation"
+            author="true"
+            destdir="${javadoc}"
+            nodeprecated="false"
+            nodeprecatedlist="false"
+            noindex="false"
+            nonavbar="false"
+            notree="false"
+            sourcepath="${src}"
+            splitindex="true"
+            use="true"
+            version="true"
+            packagenames="*"
+            linksource="true"
+            >
+            <classpath refid="classpath" />
+        </javadoc>
+    </target>
+
+    <target name="all" depends="clean,package,javadoc" description="Clean, package, and generate javadoc" />
+
+</project>

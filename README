@@ -1,0 +1,191 @@
+README
+
+List of files:
+	-pds.core 
+		-Log.java
+		-Main.java
+		-Register.java
+	-pds.database
+		-Customer.java
+		-Customers.java
+		-Employee.java
+		-EmployeeDatabase.java
+		-Location.java
+		-LocationDatabase.java
+		-MenuDatabase.java
+		-StageDatabase.java
+		-ToppingList.java
+	-pds.order
+		-Item.java
+		-Order.java
+		-Topping.java
+	-pds.sim
+		-ItemWorker.java
+		-OrderWorker.java
+		-Simulation.java
+		-Stage.java
+		-Worker.java
+	-pds.test
+		-CustomerTest.java
+		-EmployeeTest.java
+		-ItemTest.java
+		-ItemWorkerTest.java
+		-OrderTest.java
+		-OrderWorkerTest.java
+	-pds.ui
+		ActiveOrderView.java
+		ArrowButton.java
+		BackArrowListener.java
+		ConfigMenuView.java
+		CustomerInfoPanel.java
+		EmployeeView.java
+		ForwardArrowListener.java
+		InitialRegistrationView.java
+		KitchenConfigView.java
+		LoginPanel.java
+		LoginScreen.java
+		LogView.java
+		MainGUI.java
+		MainView.java
+		ManagerView.java
+		MenuButton.java
+		MenuButtonListener.java
+		menuItemSelect.java
+		MenuItemsPanel.java
+		MenuPanel.java
+		ModifiedObservable.java
+		NavigationPanel.java
+		NewStageView.java
+		OrderButtonListener.java
+		OrderedItemsPanel.java
+		PhoneNumberListener.java
+		SideMenuPanel.java
+		StageConfigView.java
+		StartOrderListener.java
+		StatusHeaderView.java
+		TabbedWindow.java
+		ToppingButtonListener.java
+		ToppingOptionsListener.java
+		ToppingsPanel.java
+		TotalPanel.java
+	-config
+		Menu.cfg
+		Stage.cfg
+	-database
+		Customer.db
+		Location.db
+		Employee.db
+		Toppings.db
+	-history
+		Orders.ser
+
+Known Bugs:
+	None.
+
+
+
+Disclaimer:
+	You will see duplicate items at the take order screen.
+	The reason for this is because Menu.cfg is loaded with
+	many of the same items. The reason for this is to show our
+	paginated display at the take order screen. Feel free to delete
+	any items from the menu.
+	
+	Beware when editing Stage.cfg. Remember, if youre going to add a stage,
+	all the items now need a time for that stage, excluding driver/delivery.
+
+	If you want to view all the orders in the Daily Order tab after searching
+ 	for a customer, all text from the phone number field must be cleared and
+	find customer must be pressed.
+
+	If you specify a stage with 0 workers, the simulation will not progress pass that
+	stage. All stages must have at least one worker in order for orders to be fully processed
+	to the end.
+
+How to use software:
+	
+	-Open cmd or terminal.
+	-cd to the directory containing run.bat and run.sh
+	-if on linux run:
+		:chmod 755 run.sh
+		:sh run.sh
+
+	-if on windows:
+		:double click run.bat
+
+	Manager Account:
+		Username: dipizza
+		Password: pasta
+
+	Cashier Account:
+		Username: johnny
+		Password: italy
+	
+	-Config files for configurable menu and stages
+		The most important configuration files that truly express our
+		programs configurability are in the config folder with the names
+		Stage.cfg and Menu.cfg. Menu relies on Stage because Stage lets you determine
+		how many different Stages there can be. For example, there can be a prepping
+		stage, a cooking/oven stage, glazing stage etc. The reason Menu.cfg relies on
+		this is because the number of stages is directly linked to the items on the menu,
+		where if a stage is specified a corresponding time for that stage for each item
+		must also be specified. For example, if I say I want a glazing stage and add it
+		to Stage.cfg, all my items in Menu.cfg must also now have glazing time specified.
+		The order of the stages is determined by there order listed in the config file.
+		Each stage in Stage.cfg has multiple properties each seperated by a comma.
+
+		Stage.cfg format
+		Argument 1: The name of the stage or job, 
+		Argument 2: The number of workers in that stage 
+		Argument 3: How many items that worker can hold, write a negative number if it doesn't matter.
+		Argument 4: True if this worker works with orders rather items. For example, an oven
+			    can split up an order by multiple items, while drivers must deliver whole orders.
+
+		Menu.cfg format
+		Argument 1: The name of the item. 
+		Argument 2: The Price of the item.
+		Argument 3.The number of space units, 
+		Argument 4: true if this item can have toppings,
+		Argument 5....N: The time it takes per stage, must be equal to the number of Stages not including the delivery stage in Stage.cfg, 
+		#DO NOT account for the Driver Time!!!#
+		Remember that the delivery time is not handled on a stage by stage basis, but depends on
+		the customer, so it is not variable time that should be specified. The simulation handles it.
+
+		database/Toppings.db:
+		Argument 1: Name of topping.
+		Argument 2. Price of topping.
+
+
+	-Registration and logging in
+		-When first running the software you will be prompted to 
+		 create a new username and password. Enter the desired 
+		 username and password and specify whether or not you are 
+		 an admin (check yes). Select finish and your account should
+		 be set up. 
+	
+	-Placing an order
+		-When you open the system, you are automatically brought
+		 to the customer search screen. Type the the phone number
+		 of the calling customer. If they are in the database, the 
+		 name and location should automaticall fill in after the 
+		 number is entered (press enter after all 10 digits have been entered)
+		 After customer information has been given, select start order.
+		 choose the desired items and toppings and select process order 
+		 (or done choosing topping and then process order). The order will then process
+
+	-Viewing current orders
+		-Select the View Current Orders tab. By default, all of the current and completed 
+		 orders for the day are shown. You can choose to sort the orders by customer if you type
+		 in the customer's phone number in the number box or by stage if you select the scrolldown bar.
+		 upon clicking on an order, the order's information should appear on the right hand side. 
+	-view manager logs
+		-Select the manager tab and then select the View Logs tab. By default all of the processed orders 
+		 being shown. Enter in a date ranged in order to widdle down the list or zone in on stats for a specific range.
+	
+	-manage employees
+		-select the managet tab and then the Employee Management tab (or just the Employee Management tab if you are already in the manager tab). 
+		 On the left is a list of current employees, their names, account names, and admin status. There are 3 options. You may hire(add) a 
+		 new employee (which prompts you to create a new account), promote an already existing employee who is not already a manager, or fire(remove)
+		 a current employee. Note: One admin(manager) must be on the list at all times.  
+
+
